@@ -9,3 +9,5 @@ I created this implementation of Sudoku in my first semester at university in 20
 ```bash
 ant run
 ```
+
+![](http://i.imgur.com/Am8a2Iz.png)
