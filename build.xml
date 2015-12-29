@@ -1,0 +1,27 @@
+<project>
+    <target name="clean">
+        <delete dir="dist"/>
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="build"/>
+        <javac srcdir="src" destdir="build"/>
+        <copy todir="build/sudoku/resources">
+            <fileset dir="resources"></fileset>
+        </copy>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/Sudoku.jar" basedir="build">
+            <manifest>
+                <attribute name="Main-Class" value="sudoku.Sudoku"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="dist/Sudoku.jar" fork="true"/>
+    </target>
+</project>
